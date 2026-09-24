@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-
     <h2>Aplikasi Kasir Elektronik (Menggunakan Fungsi)</h2>
-
     <script>
         // 1. FUNGSI UNTUK MENGHITUNG DISKON
         function hitungDiskon(totalBelanja) {
             let persen = 0;
-
             if (totalBelanja >= 200000) {
                 persen = 20;
             } else if (totalBelanja >= 100000) {
                 persen = 10;
             }
-
             return (persen / 100) * totalBelanja;
         }
-
-
+        
         // 2. INPUT DATA
         let pembeli = prompt("Masukkan Nama Pembeli:");
         let barang1 = prompt("Masukkan Nama Barang 1:");
@@ -27,44 +22,29 @@
         let barang2 = prompt("Masukkan Nama Barang 2:");
         let harga2 = Number(prompt("Masukkan Harga Barang 2 (Rp):"));
 
-
         // 3. PROSES PERHITUNGAN
         let totalBelanja = harga1 + harga2;
         let nominalDiskon = hitungDiskon(totalBelanja); // Memanggil fungsi
         let totalBayar = totalBelanja - nominalDiskon;
 
-
         // 4. OUTPUT STRUK
-        for (let i = 1; i <= 35; i++) {
-            document.write("=");
-        }
-
+        for (let i = 1; i <= 35; i++) { document.write("="); }
         document.write("<br><b>STRUK TOKO ELEKTRONIK RPL</b><br>");
-
-        for (let i = 1; i <= 35; i++) {
-            document.write("=");
-        }
-
+        for (let i = 1; i <= 35; i++) { document.write("="); }
         document.write("<br>");
 
         document.write("Nama Pembeli : " + pembeli + "<br>");
         document.write("1. " + barang1 + " : Rp " + harga1 + "<br>");
         document.write("2. " + barang2 + " : Rp " + harga2 + "<br>");
 
-        for (let i = 1; i <= 35; i++) {
-            document.write("-");
-        }
-
+        for (let i = 1; i <= 35; i++) { document.write("-"); }
         document.write("<br>");
 
         document.write("Total Belanja : Rp " + totalBelanja + "<br>");
         document.write("Potongan Diskon: Rp " + nominalDiskon + "<br>");
         document.write("<b>Total Bayar : Rp " + totalBayar + "</b><br>");
 
-        for (let i = 1; i <= 35; i++) {
-            document.write("=");
-        }
+        for (let i = 1; i <= 35; i++) { document.write("="); }
     </script>
-
 </body>
 </html>
