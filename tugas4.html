@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Kasir Toko Elektronik RPL</title>
-</head>
 <body>
-	<h2>Aplikasi Kasir Elektronik (Menggunakan Fungsi)</h2>
-<script>
-    // Fungsi menghitung diskon
-    function hitungDiskon(totalBelanja) {
-        if (totalBelanja >= 200000) {
-            return totalBelanja * 0.20;
-        } else if (totalBelanja >= 100000) {
-            return totalBelanja * 0.10;
-        } else {
-            return 0;
+
+    <h2>Aplikasi Kasir Elektronik (Menggunakan Fungsi)</h2>
+
+    <script>
+        // 1. FUNGSI UNTUK MENGHITUNG DISKON
+        function hitungDiskon(totalBelanja) {
+            let persen = 0;
+
+            if (totalBelanja >= 200000) {
+                persen = 20;
+            } else if (totalBelanja >= 100000) {
+                persen = 10;
+            }
+
+            return (persen / 100) * totalBelanja;
         }
-    }
 
-    // Input data
-    let namaPembeli = prompt("Masukkan nama pembeli:");
 
-    let namaBarang1 = prompt("Masukkan nama barang 1:");
-    let hargaBarang1 = Number(prompt("Masukkan harga barang 1:"));
+        // 2. INPUT DATA
+        let pembeli = prompt("Masukkan Nama Pembeli:");
+        let barang1 = prompt("Masukkan Nama Barang 1:");
+        let harga1 = Number(prompt("Masukkan Harga Barang 1 (Rp):"));
 
-    let namaBarang2 = prompt("Masukkan nama barang 2:");
-    let hargaBarang2 = Number(prompt("Masukkan harga barang 2:"));
+        let barang2 = prompt("Masukkan Nama Barang 2:");
+        let harga2 = Number(prompt("Masukkan Harga Barang 2 (Rp):"));
 
-    // Proses
-    let totalBelanja = hargaBarang1 + hargaBarang2;
 
-    let nominalDiskon = hitungDiskon(totalBelanja);
+        // 3. PROSES PERHITUNGAN
+        let totalBelanja = harga1 + harga2;
+        let nominalDiskon = hitungDiskon(totalBelanja); // Memanggil fungsi
+        let totalBayar = totalBelanja - nominalDiskon;
 
-    let totalBayar = totalBelanja - nominalDiskon;
 
-    // Output struk
-    document.write("<hr>");
-    document.write("<h3>STRUK TOKO ELEKTRONIK RPL</h3>");
-    document.write("<hr>");
+        // 4. OUTPUT STRUK
+        for (let i = 1; i <= 35; i++) {
+            document.write("=");
+        }
 
-    document.write("Nama Pembeli : " + namaPembeli + "<br><br>");
+        document.write("<br><b>STRUK TOKO ELEKTRONIK RPL</b><br>");
 
-    document.write("1. " + namaBarang1 + " : Rp "
-        + hargaBarang1.toLocaleString("id-ID") + "<br>");
+        for (let i = 1; i <= 35; i++) {
+            document.write("=");
+        }
 
-    document.write("2. " + namaBarang2 + " : Rp "
-        + hargaBarang2.toLocaleString("id-ID") + "<br><br>");
+        document.write("<br>");
 
-    document.write("Total Belanja : Rp "
-        + totalBelanja.toLocaleString("id-ID") + "<br>");
+        document.write("Nama Pembeli : " + pembeli + "<br>");
+        document.write("1. " + barang1 + " : Rp " + harga1 + "<br>");
+        document.write("2. " + barang2 + " : Rp " + harga2 + "<br>");
 
-    document.write("Potongan Diskon : Rp "
-        + nominalDiskon.toLocaleString("id-ID") + "<br>");
+        for (let i = 1; i <= 35; i++) {
+            document.write("-");
+        }
 
-    document.write("Total Bayar : Rp "
-        + totalBayar.toLocaleString("id-ID") + "<br>");
+        document.write("<br>");
 
-    document.write("<hr>");
-</script>
+        document.write("Total Belanja : Rp " + totalBelanja + "<br>");
+        document.write("Potongan Diskon: Rp " + nominalDiskon + "<br>");
+        document.write("<b>Total Bayar : Rp " + totalBayar + "</b><br>");
+
+        for (let i = 1; i <= 35; i++) {
+            document.write("=");
+        }
+    </script>
 
 </body>
 </html>
